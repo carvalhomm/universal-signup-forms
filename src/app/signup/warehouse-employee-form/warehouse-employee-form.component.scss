@@ -1,0 +1,7 @@
+mat-radio-group {
+    display: flex;
+    flex-direction: column;
+    mat-radio-button:first-of-type {
+        margin-right: 5px;
+    }
+}

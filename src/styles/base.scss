@@ -1,0 +1,138 @@
+@import './variables.scss';
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  background: #f0f0f0;
+  color: $charcoal-grey;
+  // overflow-y: hidden;
+}
+
+// ScrollBar Design
+::-webkit-scrollbar {
+  width: 6px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $primary-blue;
+  border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $primary-blue;
+}
+
+button:focus {
+    outline: none;
+}
+
+.primary-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  opacity: 0.9;
+  box-shadow: 0 1px 3px 0 rgba(55, 63, 81, .15);
+  background-color: $primary-blue;
+  transition: background-color .25s ease-in-out;
+  border: none;
+  border-radius: 5px;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  color: #fff;
+  letter-spacing: .8px;
+  outline: 0;
+  padding: 10px 15px 10px 15px;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+  &:disabled {
+    cursor: default;
+    opacity: 0.9;
+  }
+}
+
+.secondary-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  box-shadow: 0 1px 3px 0 rgba(55, 63, 81, .15);
+  background-color: #fff;
+  transition: color .25s ease-in-out;
+  border: 1px solid $primary-blue;
+  border-radius: 5px;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  color: $primary-soft-blue;
+  letter-spacing: .8px;
+  outline: 0;
+  padding: 10px 15px 10px 15px;
+  cursor: pointer;
+  &:hover {
+    transition: color .25s ease-in-out;
+    color: $charcoal-grey;
+  }
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.material-design-full-scroll-modal {
+  width: calc(100% - 10%);
+}
+.mat-dialog-container {
+  display: block;
+  padding: 10px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  overflow: auto;
+  outline: 0;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  max-height: inherit;
+  // @media screen and (max-height: 600px){
+  //   height: 500px
+  // }
+}
+
+mat-form-field {
+  width: 100%
+}

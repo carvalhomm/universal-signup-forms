@@ -1,0 +1,63 @@
+describe('create user case test', () => {
+    const name = 'Matheus Moreira';
+    const address = 'Ottawa, Canada';
+    const gender = 'male';
+    const phone = '9999990000';
+    const batches = '20';
+    const yieldAcquired = '10';
+    const greenhouseLocations = 'Ottawa';
+    const yearsOfExperience = '3';
+    const educationalQualification = 'In Progress';
+    before('opened page correctly', () => {
+        cy.visit('http://localhost:4200');
+        cy.contains('User List Page');
+    });
+    it('creates an user of type grower', () => {
+        cy.get('button.mat-button').click();
+        cy.get('#typeId').click();
+        cy.get('#growerId').click();
+        cy.get('#NameId').type(name);
+        cy.get('#AddressId').type(address);
+        cy.get('#genderId').click();
+        cy.get('#femaleId').click();
+        cy.get('#PhonenumberId').type(phone);
+        cy.get('#BatcheshandledId').type(batches);
+        cy.get('#YieldacquiredinkgId').type(yieldAcquired);
+        cy.get("input[role='combobox']").type(greenhouseLocations).type('{enter}');
+        cy.get('button.primary-button').click();
+        cy.contains(name).click();
+        cy.contains('User Details Page');
+        cy.contains(name);
+        cy.contains(address);
+        cy.contains(gender);
+        cy.contains(phone);
+        cy.contains(batches);
+        cy.contains(yieldAcquired);
+        cy.contains(greenhouseLocations);
+        cy.contains('Go back to users list').click();
+    });
+    it('creates an user of type warehouse employee', () => {
+        cy.get('button.mat-button').click();
+        cy.get('#typeId').click();
+        cy.get('#warehouseId').click();
+        cy.get('#NameId').type(name);
+        cy.get('#AddressId').type(address);
+        cy.get('#genderId').click();
+        cy.get('#femaleId').click();
+        cy.get('#PhonenumberId').type(phone);
+        cy.get('#YearsofexperienceId').type(yearsOfExperience);
+        cy.get('#EducationalqualificationId').type(educationalQualification);
+        cy.get('[type="radio"]').first().check({force: true});
+        cy.get('button.primary-button').click();
+        cy.contains(name).click();
+        cy.contains('User Details Page');
+        cy.contains(name);
+        cy.contains(address);
+        cy.contains(gender);
+        cy.contains(phone);
+        cy.contains(yearsOfExperience);
+        cy.contains(educationalQualification);
+        cy.contains('Yes');
+        cy.contains('Go back to users list').click();
+    });
+})

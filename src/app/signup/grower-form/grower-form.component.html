@@ -1,0 +1,14 @@
+<form [formGroup]="formGroup">
+    <app-universal-form-control inputLabel="Batches handled" inputType="number" [formControl]="formGroup.get('batches_handled')"></app-universal-form-control>
+    <app-universal-form-control inputLabel="Yield acquired (in kg)" inputType="number" [formControl]="formGroup.get('yield_acquired')"></app-universal-form-control>
+    <ng-select
+        id="greenhouseLocationsId"
+        placeholder="Select the greenhouse locations"
+        [appendTo]="'body'"
+        [items]="greenhouseLocations"
+        [multiple]="true"
+        appereance="outline"
+        formControlName="greenhouse_locations"
+    ></ng-select>
+    <mat-error *ngIf="formGroup.get('greenhouse_locations').invalid && formGroup.get('greenhouse_locations').touched">Greenhouses locations is required</mat-error>
+</form>

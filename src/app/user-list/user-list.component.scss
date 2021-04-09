@@ -1,0 +1,14 @@
+@import '../../styles/variables.scss';
+.spinner-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.table-row {
+    cursor: pointer;
+    &:hover{
+        transition: background-color 0.5s ease-in-out;
+        background-color: $charcoal-grey-tint;
+    }
+}

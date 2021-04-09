@@ -1,0 +1,13 @@
+<form [formGroup]="formGroup">
+  <app-universal-form-control inputLabel="Name" inputType="text" [formControl]="formGroup.controls['name']"></app-universal-form-control>
+  <app-universal-form-control inputLabel="Address" inputType="text" [formControl]="formGroup.controls['address']"></app-universal-form-control>
+  <mat-form-field>
+    <mat-label>Select your gender</mat-label>
+    <mat-select id="genderId" [formControl]="formGroup.get('gender')">
+      <mat-option id="femaleId" value="Female">Female</mat-option>
+      <mat-option id="maleId" value="Male">Male</mat-option>
+    </mat-select>
+    <mat-error *ngIf="formGroup.get('gender').invalid && formGroup.get('gender').touched">Gender is required</mat-error>
+  </mat-form-field>
+  <app-universal-form-control inputLabel="Phone number" inputMask="000-000-0000" [inputPatterns]="numberPattern" inputType="text" [formControl]="formGroup.controls['phone_number']"></app-universal-form-control>
+</form>

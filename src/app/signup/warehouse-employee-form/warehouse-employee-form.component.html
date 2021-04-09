@@ -1,0 +1,14 @@
+<form [formGroup]="formGroup">
+  <app-universal-form-control inputLabel="Years of experience" inputType="number" [formControl]="formGroup.controls['years_of_experience']"></app-universal-form-control>
+  <app-universal-form-control inputLabel="Educational qualification" inputType="text" [formControl]="formGroup.controls['educational_qualification']"></app-universal-form-control>
+  <mat-radio-group formControlName="inventory_management_certification">
+    <span class="inventory-label">Inventory management certification?</span>
+    <mat-radio-button id="inventoryYesId" value="Yes">
+      Yes
+    </mat-radio-button>
+    <mat-radio-button id="inventoryNoId" value="No">
+      No
+    </mat-radio-button>
+    <mat-error *ngIf="formGroup.get('inventory_management_certification').invalid && formGroup.get('inventory_management_certification').touched">Inventory management certification is required</mat-error>
+  </mat-radio-group>
+</form>

@@ -1,0 +1,54 @@
+<div class="user-details-container">
+    <h1 i18n>User Details Page</h1>
+    <button mat-button (click)="backToUserList()">
+        <span i18n>Go back to users list</span>
+      </button>
+    <div class="shared-info">
+        <div class="info-box">
+            <span class="info-title">Name</span>
+            <span class="info-detail">{{ user.name }}</span>
+        </div>
+        <div class="info-box">
+            <span class="info-title">Address</span>
+            <span class="info-detail">{{ user.address }}</span>
+        </div>
+        <div class="info-box">
+            <span class="info-title">Phone Number</span>
+            <span class="info-detail">{{ user.phone_number }}</span>
+        </div>
+        <div class="info-box">
+            <span class="info-title">Gender</span>
+            <span class="info-detail">{{ user.gender }}</span>
+        </div>
+    </div>
+    <div class="specific-info">
+        <ng-container *ngIf="user.inventory_management_certification">
+            <div class="info-box">
+                <span class="info-title">Years of Experience</span>
+                <span class="info-detail">{{ user.years_of_experience }}</span>
+            </div>
+            <div class="info-box">
+                <span class="info-title">Educational Qualification</span>
+                <span class="info-detail">{{ user.educational_qualification }}</span>
+            </div>
+            <div class="info-box">
+                <span class="info-title">Inventory Management Certification</span>
+                <span class="info-detail">{{ user.inventory_management_certification }}</span>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!user.inventory_management_certification">
+            <div class="info-box">
+                <span class="info-title">Batches Handled</span>
+                <span class="info-detail">{{ user.batches_handled }}</span>
+            </div>
+            <div class="info-box">
+                <span class="info-title">Yield Acquired</span>
+                <span class="info-detail">{{ user.yield_acquired }} kg</span>
+            </div>
+            <div class="info-box">
+                <span class="info-title">Greenhouse Locations</span>
+                <span class="info-detail">{{ user.greenhouse_locations }}</span>
+            </div>
+        </ng-container>
+    </div>
+</div>

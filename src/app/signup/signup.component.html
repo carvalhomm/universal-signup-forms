@@ -1,0 +1,16 @@
+<div class="signup-container" [ngStyle]="{'height': containerHeight}">
+  <mat-form-field>
+    <mat-label>Select your type</mat-label>
+    <mat-select id="typeId" [formControl]="typeControl">
+      <mat-option id="growerId" value="Grower">Grower</mat-option>
+      <mat-option id="warehouseId" value="Warehouse employee">Warehouse employee</mat-option>
+    </mat-select>
+    <mat-error *ngIf="typeControl.invalid && typeControl.touched">Please select your type</mat-error>
+  </mat-form-field>
+  <ng-container *ngIf="typeControl.value">
+    <app-shared-form #sharedForm></app-shared-form>
+    <app-grower-form #growerForm *ngIf="typeControl.value === 'Grower'"></app-grower-form>
+    <app-warehouse-employee-form #warehouseForm *ngIf="typeControl.value === 'Warehouse employee'"></app-warehouse-employee-form>
+  </ng-container>
+  <button [disabled]="!typeControl.value" class="primary-button" (click)="completeSignUp()">Sign Up</button>
+</div>
